@@ -10,18 +10,6 @@ Options -Indexes
     Require all denied
 </FilesMatch>
 
-# ── URL Rewrite ────────────────────────────────────────────────
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-
-    # Kök .htaccess istekleri buraya /public/... olarak yönlendiriyor.
-    RewriteBase /public/
-
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
-</IfModule>
-
 # ── Güvenlik Başlıkları ────────────────────────────────────────
 <IfModule mod_headers.c>
     Header always set X-Content-Type-Options "nosniff"
@@ -36,3 +24,6 @@ Options -Indexes
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/css application/javascript
 </IfModule>
+
+# Not: URL rewrite işi kök .htaccess'te yapılıyor.
+# Buradaki RewriteBase mantığı çakışma yaratmaması için kaldırıldı.

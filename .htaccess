@@ -1,21 +1,26 @@
 # ────────────────────────────────────────────────────────────────
 # Kök .htaccess — tüm istekleri public/ klasörüne yönlendirir.
-# Hostinger document root'u public_html olduğu için, bu dosya
-# kullanıcıyı görünmez şekilde public/ alt klasörüne yönlendirir.
 # ────────────────────────────────────────────────────────────────
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Eğer istek public/ ile başlamıyorsa, public/ ekle (görünmez)
+    # Sonsuz loop engeli: zaten public/ ile başlıyorsa dokunma
     RewriteCond %{REQUEST_URI} !^/public/
+
+    # public/ altında gerçek dosya/dizin varsa oraya gönder
+    RewriteCond %{DOCUMENT_ROOT}/public/$1 -f [OR]
+    RewriteCond %{DOCUMENT_ROOT}/public/$1 -d
     RewriteRule ^(.*)$ public/$1 [L]
+
+    # Dosya/dizin değilse, public/index.php'ye gönder (front controller)
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/index.php?url=$1 [QSA,L]
 </IfModule>
 
-# Hassas dosyalara erişimi tamamen engelle
+# Hassas dosyalara erişimi engelle
 <FilesMatch "\.(env|log|sql|bak|htpasswd|gitignore|md)$">
     Require all denied
 </FilesMatch>
 
-# Dizin listelemeyi kapat
 Options -Indexes
