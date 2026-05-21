@@ -1,0 +1,173 @@
+/* Button Bileşenleri */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.7rem 1.6rem;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+  white-space: nowrap;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.btn:hover {
+  background: var(--color-primary-hover);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn.sm {
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn.lg {
+  padding: 0.9rem 2.2rem;
+  font-size: 1rem;
+}
+
+.btn.danger {
+  background: var(--color-danger);
+}
+
+.btn.danger:hover {
+  background: #c93b45;
+  box-shadow: 0 6px 20px rgba(224, 108, 117, 0.2);
+}
+
+.btn.outline {
+  background: transparent;
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn.outline:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* ── BEM Modifier Varyantları (btn--*) ─────────────────────── */
+/* Projede .btn--outline, .btn--lg, .btn--sm, .btn--whatsapp,
+   .btn--full kullanılıyor. _buttons.css'de .btn.outline ve .btn.sm
+   de var — her ikisi de desteklenir. */
+
+.btn--outline {
+    background: transparent;
+    border: 1.5px solid var(--color-primary);
+    color: var(--color-primary);
+}
+.btn--outline:hover {
+    background: var(--color-primary);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.btn--full {
+    width: 100%;
+    justify-content: center;
+}
+
+.btn--whatsapp {
+    background: #25d366;
+    color: #fff;
+}
+.btn--whatsapp:hover {
+    background: #1ebe5d;
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(37,211,102,0.25);
+}
+
+.btn--lg {
+    padding: 0.9rem 2.2rem;
+    font-size: 1rem;
+}
+
+.btn--sm {
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    border-radius: var(--radius-sm);
+}
+
+/* ── Sidebar Badge ──────────────────────────────────────────── */
+/* Admin sidebar için — _sidebar.css'de tanımlı olması ideal
+   ama admin template'leri bu class'ı kullandığından burada. */
+.sidebar__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    background: var(--color-danger);
+    color: #fff;
+    border-radius: var(--radius-full);
+    font-size: 0.65rem;
+    font-weight: 700;
+    margin-left: var(--space-2);
+    line-height: 1;
+}
+
+/* ── Premium CTA iyileştirmeleri ────────────────────────── */
+
+/* Birincil CTA — daha güçlü glow */
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* Icon animasyonu */
+.btn i {
+  transition: transform var(--transition-fast);
+}
+.btn:hover i.uil-arrow-right,
+.btn:hover i.uil-external-link-alt {
+  transform: translateX(3px);
+}
+.btn:hover i.uil-calendar-alt {
+  transform: scale(1.15);
+}
+
+/* WhatsApp hover renk düzeltme */
+.btn--whatsapp:hover {
+  color: #fff !important;
+}
+
+/* Randevu al butonu — özel güçlü stil */
+.btn--cta-primary {
+  padding: 0.85rem 2rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 20px rgba(108,99,255,0.3);
+}
+.btn--cta-primary:hover {
+  box-shadow: 0 6px 28px rgba(108,99,255,0.45);
+}
+
+/* Devre dışı */
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}

@@ -1,0 +1,380 @@
+/* Admin Dashboard */
+
+/* ── Layout ───────────────────────────────────────────────── */
+.dashboard {
+  padding: 0;
+  margin-top: var(--nav-height);
+  min-height: calc(100vh - var(--nav-height));
+}
+
+.dashboard__container {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: calc(100vh - var(--nav-height));
+  position: relative;
+}
+
+/* ── Main İçerik ──────────────────────────────────────────── */
+.dashboard__container main {
+  padding: var(--space-7) var(--space-8);
+  overflow-x: auto;
+}
+
+.dashboard__container main h2 {
+  margin-bottom: var(--space-6);
+  font-size: 1.5rem;
+}
+
+/* ── Page Header ──────────────────────────────────────────── */
+.dashboard__page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.dashboard__page-header h2 {
+  margin-bottom: 0;
+}
+
+/* ── Stat Kartları ────────────────────────────────────────── */
+.dashboard__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-5);
+  margin-bottom: var(--space-7);
+}
+
+.dashboard__stat-card {
+  background: var(--color-bg-2);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.dashboard__stat-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.dashboard__stat-card i {
+  font-size: 1.5rem;
+  color: var(--color-accent);
+}
+
+.dashboard__stat-card .stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.dashboard__stat-card .stat-label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+/* ── Quick Actions ────────────────────────────────────────── */
+.dashboard__quick-actions {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-7);
+  flex-wrap: wrap;
+}
+
+/* ── Panels (İki Sütun) ──────────────────────────────────── */
+.dashboard__panels {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--space-6);
+}
+
+.dashboard__panel-left,
+.dashboard__panel-right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.dashboard__panel {
+  background: var(--color-bg-2);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.dashboard__panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-5) var(--space-5) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dashboard__panel-header h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.dashboard__panel-header h3 i {
+  color: var(--color-accent);
+  font-size: 1.1rem;
+}
+
+/* ── Liste Öğeleri ────────────────────────────────────────── */
+.dashboard__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard__list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  transition: background var(--transition-fast);
+}
+
+.dashboard__list-item:last-child {
+  border-bottom: none;
+}
+
+.dashboard__list-item:hover {
+  background: var(--color-bg-3);
+}
+
+.dashboard__list-item.unread {
+  background: var(--color-primary-glow);
+}
+
+.dashboard__list-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.dashboard__list-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+a.dashboard__list-title:hover {
+  color: var(--color-primary);
+}
+
+.dashboard__list-meta {
+  font-size: 0.78rem;
+  color: var(--color-text-faint);
+}
+
+.dashboard__list-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: var(--color-primary-glow);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.dashboard__list-badge i {
+  font-size: 0.8rem;
+}
+
+.dashboard__list-badge-muted {
+  font-size: 0.75rem;
+  color: var(--color-text-faint);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.dashboard__empty {
+  padding: var(--space-6);
+  text-align: center;
+  color: var(--color-text-faint);
+  font-size: 0.875rem;
+}
+
+/* ── Status Dot ───────────────────────────────────────────── */
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+}
+
+.status-dot--new {
+  background: var(--color-primary);
+  box-shadow: 0 0 6px var(--color-primary-glow);
+}
+
+.status-dot--read {
+  background: var(--color-text-faint);
+}
+
+/* ── Unread Row Highlight ─────────────────────────────────── */
+.row--unread {
+  background: var(--color-primary-glow);
+}
+
+.row--unread:hover {
+  background: var(--color-bg-3);
+}
+
+/* ── Message Detail ───────────────────────────────────────── */
+.message__detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-5);
+}
+
+.message__detail-row {
+  display: flex;
+  gap: var(--space-4);
+  align-items: baseline;
+}
+
+.message__detail-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  min-width: 100px;
+  flex-shrink: 0;
+}
+
+.message__detail-value {
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.message__detail-value a {
+  color: var(--color-primary);
+}
+
+.message__detail-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.message__detail-content {
+  background: var(--color-bg-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+/* ── Category Title Header ────────────────────────────────── */
+.category__title {
+  background: var(--color-bg-2);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-8) 0 var(--space-6);
+  margin-top: var(--nav-height);
+  text-align: center;
+}
+
+.category__title h2 {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 800;
+  color: var(--color-text);
+}
+/* ── İçerik Sağlığı Uyarıları ─────────────────────────────── */
+.dashboard__health {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.dashboard__health-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-left: 3px solid transparent;
+}
+
+.dashboard__health-item i {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.dashboard__health-item span {
+  flex: 1;
+}
+
+.dashboard__health-item--warn {
+  background: var(--color-warning-soft, rgba(245,158,11,0.08));
+  border-left-color: var(--color-warning, #F59E0B);
+  color: var(--color-text);
+}
+
+.dashboard__health-item--warn i { color: var(--color-warning, #F59E0B); }
+
+.dashboard__health-item--info {
+  background: var(--color-accent-soft, rgba(34,211,167,0.08));
+  border-left-color: var(--color-accent, #22D3A7);
+  color: var(--color-text);
+}
+
+.dashboard__health-item--info i { color: var(--color-accent, #22D3A7); }
+
+/* ── Thumbnail ratio warning (admin post create/edit) ───────── */
+.thumb-ratio-warn {
+  display: none;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-warning-soft, rgba(245,158,11,0.08));
+  border-left: 3px solid var(--color-warning, #F59E0B);
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  color: var(--color-warning, #F59E0B);
+}
+.thumb-ratio-warn i { flex-shrink: 0; }
+
+.dashboard__health-item--seo {
+  background: var(--color-primary-soft, rgba(108,99,255,0.06));
+  border-left-color: var(--color-primary);
+  color: var(--color-text);
+}
+.dashboard__health-item--seo i { color: var(--color-primary); }

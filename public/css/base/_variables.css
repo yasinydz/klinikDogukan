@@ -1,0 +1,37 @@
+/* Spacing, Radius & Container Değişkenleri */
+
+:root {
+  /* Navbar yüksekliği — tüm sayfalarda padding-top hesabı buradan yapılır */
+  --nav-height: 70px;
+
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.5rem;
+  --space-6:  2rem;
+  --space-7:  2.5rem;
+  --space-8:  3.5rem;
+  --space-9:  5rem;
+  --space-10: 7rem;
+
+  --radius-sm:  8px;
+  --radius-md:  12px;
+  --radius-lg:  16px;
+  --radius-xl:  22px;
+  --radius-full: 9999px;
+
+  --container-max: 1200px;
+  --container-pad: clamp(1rem, 4vw, 2rem);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+section {
+  padding: var(--space-9) 0;
+}

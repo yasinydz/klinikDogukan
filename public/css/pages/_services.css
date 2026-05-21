@@ -1,0 +1,251 @@
+/* =============================================================
+   _services.css — Hizmetler Sayfası, Hizmet Kartları, FAQ
+   ============================================================= */
+
+/* ── Hero ─────────────────────────────────────────────────── */
+.services__hero {
+  padding-top: calc(var(--nav-height) + var(--space-9));
+  padding-bottom: var(--space-8);
+  text-align: center;
+}
+
+.services__hero-container {
+  max-width: 680px;
+}
+
+.services__hero-container h1 {
+  margin: var(--space-4) 0;
+}
+
+.services__hero-container p {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* ── Hizmet Kartları — Grid Layout ────────────────────────── */
+.services__list-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+}
+
+/* ── Hizmet Kartı — Ortak Component ──────────────────────── */
+.hizmet-karti {
+  background: var(--color-bg-2);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
+}
+
+.hizmet-karti:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+/* Görsel alanı (opsiyonel — görsel yoksa gösterilmez) */
+.hizmet-karti__media {
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  /* Negatif margin ile kart padding'ini iptal edip tam genişlik al */
+  margin: calc(-1 * var(--space-5));
+  margin-bottom: var(--space-2);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.hizmet-karti__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.hizmet-karti:hover .hizmet-karti__media img {
+  transform: scale(1.04);
+}
+
+/* İkon */
+.hizmet-karti__ikon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent-soft);
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.hizmet-karti__ikon i {
+  font-size: 1.4rem;
+  color: var(--color-accent);
+  transition: transform var(--transition-base);
+}
+
+.hizmet-karti:hover .hizmet-karti__ikon i {
+  transform: scale(1.1) rotate(-3deg);
+}
+
+/* Başlık — h2 (services sayfası) veya h3 (home) */
+.hizmet-karti h2,
+.hizmet-karti h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Açıklama */
+.hizmet-karti > p {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+/* CTA butonları */
+.service__card-actions {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: var(--space-3);
+}
+
+.service__card-actions .btn {
+  font-size: 0.8rem;
+  padding: 8px 14px;
+}
+
+/* Eski link (gizle — CTA actions kullanılıyor) */
+.hizmet-karti .hizmet-karti__link {
+  display: none;
+}
+
+/* ── FAQ ──────────────────────────────────────────────────── */
+.services__faq-container h2 {
+  margin-bottom: var(--space-7);
+  text-align: center;
+}
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.faq__item {
+  background: var(--color-bg-2);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color var(--transition-fast);
+}
+
+.faq__item.open {
+  border-color: var(--color-primary);
+}
+
+.faq__question {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-5) var(--space-6);
+  background: none;
+  border: none;
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.faq__question:hover {
+  color: var(--color-primary);
+}
+
+.faq__question i {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  transition: transform var(--transition-base);
+  flex-shrink: 0;
+}
+
+.faq__item.open .faq__question i {
+  transform: rotate(180deg);
+  color: var(--color-primary);
+}
+
+.faq__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-slow), padding var(--transition-slow);
+}
+
+.faq__item.open .faq__answer {
+  max-height: 300px;
+  padding: 0 var(--space-6) var(--space-5);
+}
+
+.faq__answer p {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+/* ── CTA ──────────────────────────────────────────────────── */
+.services__cta {
+  background: var(--color-bg-2);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.services__cta-container {
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.services__cta h2 {
+  margin-bottom: 0;
+}
+
+.services__cta p {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .services__list-container {
+    grid-template-columns: 1fr;
+  }
+
+  .service__card-actions {
+    flex-direction: column;
+  }
+
+  .service__card-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

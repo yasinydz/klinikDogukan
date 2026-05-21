@@ -1,0 +1,32 @@
+# Ortam değişkenleri
+.env
+.env.local
+.env.*.local
+
+# Loglar
+storage/logs/*
+!storage/logs/.gitkeep
+
+# Yüklenen dosyalar (kullanıcı içerik, repoda kalmamalı)
+public/images/uploads/*
+!public/images/uploads/.gitkeep
+public/images/uploads_old/
+
+# İşletim sistemi
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editör
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Geçici / yedek
+*.bak
+*.tmp
+*.log
+.trash/
+DO_NOT_UPLOAD_HERE

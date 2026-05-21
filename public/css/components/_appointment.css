@@ -1,0 +1,517 @@
+/* ══════════════════════════════════════════════════════════════
+   Appointment Page — Premium Widget + Expert Panel
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Expert Card ─────────────────────────────────────────── */
+.randevu-expert-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    background: var(--color-bg-2);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-5);
+}
+
+.randevu-expert-card__img {
+    width: 72px;
+    height: 72px;
+    border-radius: var(--radius-full);
+    object-fit: cover;
+    border: 2px solid var(--color-primary);
+    flex-shrink: 0;
+}
+
+.randevu-expert-card__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.randevu-expert-card__info strong {
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.randevu-expert-card__info span {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+}
+
+.randevu-expert-card__exp {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    margin-top: 2px;
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.78rem;
+}
+
+/* Override parent span color */
+.randevu-expert-card .randevu-expert-card__exp {
+    color: var(--color-primary);
+    font-size: 0.78rem;
+}
+
+/* ── Expert Sections ─────────────────────────────────────── */
+.randevu-expert-section {
+    margin-bottom: var(--space-5);
+}
+
+.randevu-expert-section h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-3);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.randevu-expert-section h3 i {
+    color: var(--color-primary);
+    font-size: 1.1rem;
+}
+
+.randevu-expert-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.randevu-expert-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--color-bg-2);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    transition: all var(--transition-fast);
+}
+
+.randevu-expert-tag:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+/* ── Trust List ──────────────────────────────────────────── */
+.randevu-trust-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+    padding: 0;
+    list-style: none;
+}
+
+.randevu-trust-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+.randevu-trust-list li i {
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+/* ── Appointment Type Tabs ───────────────────────────────── */
+.appt-type-tabs {
+    display: flex;
+    gap: 0;
+    background: var(--color-bg);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: var(--space-5);
+}
+
+.appt-type-tab {
+    flex: 1;
+    padding: 12px 16px;
+    border: none;
+    background: transparent;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    transition: all var(--transition-fast);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.appt-type-tab:hover {
+    color: var(--color-text);
+    background: var(--color-bg-2);
+}
+
+.appt-type-tab.active {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+/* ── Date Strip ──────────────────────────────────────────── */
+.appt-dates {
+    display: flex;
+    gap: var(--space-2);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: var(--space-3);
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+}
+
+.appt-dates::-webkit-scrollbar { height: 4px; }
+.appt-dates::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 2px; }
+
+.appt-date-chip {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    min-width: 68px;
+    padding: 10px 8px;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-bg-2);
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.appt-date-chip:hover { border-color: var(--color-primary); background: var(--color-bg); }
+.appt-date-chip:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+
+.appt-date-chip.active {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(28, 104, 82, 0.25);
+}
+
+.appt-date-chip.active .appt-date-day,
+.appt-date-chip.active .appt-date-weekday,
+.appt-date-chip.active .appt-date-month { color: #fff; }
+
+.appt-date-weekday { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; color: var(--color-text-faint); letter-spacing: 0.5px; }
+.appt-date-day { font-size: 1.15rem; font-weight: 700; color: var(--color-text); line-height: 1; }
+.appt-date-month { font-size: 0.7rem; color: var(--color-text-faint); }
+.appt-date-chip.today .appt-date-weekday { color: var(--color-primary); font-weight: 700; }
+
+/* ── Time Grid ───────────────────────────────────────────── */
+.appt-times {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2);
+}
+
+.appt-time-pill {
+    padding: 10px 12px;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-bg-2);
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    color: var(--color-text);
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.appt-time-pill:hover { border-color: var(--color-primary); background: var(--color-bg); }
+.appt-time-pill:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+
+.appt-time-pill.active {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(28, 104, 82, 0.25);
+}
+
+.appt-time-pill.disabled { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
+
+/* ── Summary ─────────────────────────────────────────────── */
+.appt-summary {
+    background: var(--color-accent-soft, rgba(28, 104, 82, 0.08));
+    border: 1.5px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    margin-bottom: var(--space-5);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: 0.88rem;
+    line-height: 1.5;
+    animation: appt-fade-in 0.3s ease;
+}
+.appt-summary i { color: var(--color-primary); font-size: 1.2rem; flex-shrink: 0; }
+.appt-summary strong { color: var(--color-text); }
+
+/* ── States ──────────────────────────────────────────────── */
+.appt-empty { text-align: center; padding: var(--space-6) var(--space-4); color: var(--color-text-faint); font-size: 0.88rem; line-height: 1.6; }
+.appt-empty i { display: block; font-size: 1.5rem; margin-bottom: var(--space-2); opacity: 0.5; }
+
+.appt-loading { display: flex; justify-content: center; padding: var(--space-5); }
+.appt-loading::after { content: ''; width: 24px; height: 24px; border: 3px solid var(--color-border); border-top-color: var(--color-primary); border-radius: 50%; animation: appt-spin 0.6s linear infinite; }
+
+@keyframes appt-spin { to { transform: rotate(360deg); } }
+@keyframes appt-fade-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ── Sticky (desktop only) ───────────────────────────────── */
+.randevu-form-wrap {
+    position: sticky;
+    top: calc(var(--nav-height, 70px) + var(--space-5));
+    align-self: start;
+}
+
+/* ── Form Base ───────────────────────────────────────────── */
+.randevu-form {
+    background: var(--color-bg-2);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-7);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+/* Desktop title — form içindeki h3 */
+.randevu-form__desktop-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+}
+
+.randevu-form__note {
+    font-size: 0.78rem;
+    color: var(--color-text-faint);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.randevu-form__note i {
+    flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE — Form element sizing
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+    .randevu-form-wrap { position: static; }
+}
+
+@media (max-width: 768px) {
+    .randevu-expert-card { padding: var(--space-3) var(--space-4); }
+    .randevu-expert-card__img { width: 56px; height: 56px; }
+
+    .appt-dates { gap: 8px; }
+    .appt-date-chip { min-width: 62px; padding: 8px 6px; }
+    .appt-date-day { font-size: 1.05rem; }
+    .appt-date-weekday, .appt-date-month { font-size: 0.65rem; }
+
+    .appt-times { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .appt-time-pill { padding: 10px 8px; font-size: 0.85rem; }
+
+    .appt-type-tab { padding: 10px 12px; font-size: 0.85rem; gap: 6px; }
+    .appt-summary { padding: var(--space-3); font-size: 0.82rem; }
+
+    .randevu-form .btn--full,
+    .randevu-form button[type="submit"] { width: 100%; padding: 14px; font-size: 0.95rem; }
+
+    .randevu-hero__alt-btns { flex-direction: column; gap: var(--space-2); }
+    .randevu-hero__alt-btns .btn { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 480px) {
+    .appt-date-chip { min-width: 54px; padding: 7px 5px; }
+    .appt-date-day { font-size: 0.95rem; }
+    .appt-time-pill { padding: 8px 6px; font-size: 0.82rem; }
+    .appt-type-tab { padding: 8px 8px; font-size: 0.8rem; }
+
+    .randevu-form .form__control input,
+    .randevu-form .form__control select,
+    .randevu-form .form__control textarea { font-size: 16px; } /* iOS zoom fix */
+
+    .randevu-expert-card { flex-direction: column; text-align: center; }
+    .randevu-expert-card__img { width: 64px; height: 64px; }
+    .randevu-expert-card__info { align-items: center; }
+    .randevu-expert-tags { justify-content: center; }
+}
+
+@media (max-width: 360px) {
+    .appt-date-chip { min-width: 48px; padding: 6px 4px; }
+    .appt-date-day { font-size: 0.9rem; }
+    .appt-date-weekday, .appt-date-month { font-size: 0.6rem; }
+    .appt-type-tab { font-size: 0.75rem; padding: 8px 6px; }
+    .appt-type-tab i { display: none; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE FULL-SCREEN APPOINTMENT PANEL
+   ─ Desktop: sticky sidebar (mevcut)
+   ─ Mobile: full-screen overlay — flex column layout
+     • header: sabit, scroll etmez
+     • body (.randevu-form): scroll edilir
+     • submit butonu her zaman erişilebilir
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Desktop defaults — panel parts hidden ────────────────── */
+.randevu-mobile-cta  { display: none; margin-bottom: var(--space-5); }
+.appt-drawer__header { display: none; }
+.appt-drawer__backdrop { display: none; }
+
+/* ── Body lock ────────────────────────────────────────────── */
+body.drawer-open {
+    overflow: hidden;
+    touch-action: none;
+}
+
+@media (max-width: 768px) {
+
+    /* Mobile CTA buton göster */
+    .randevu-mobile-cta { display: block; }
+
+    /* Desktop title gizle — panel header zaten var */
+    .randevu-form__desktop-title { display: none; }
+
+    /* ── Full-screen panel (outer container) ────────────── */
+    .randevu-form-wrap {
+        position: fixed;
+        inset: 0;            /* top:0 right:0 bottom:0 left:0 */
+        width: 100%;
+        height: 100%;        /* viewport full height */
+        z-index: 1000;
+
+        /* Flex column: header + scrollable body */
+        display: flex;
+        flex-direction: column;
+
+        background: var(--color-bg);
+
+        /* Alttan yukarı açılır */
+        transform: translateY(100%);
+        transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+        visibility: hidden;
+
+        /* Outer container scroll ETMEMELİ — sadece .randevu-form scroll eder */
+        overflow: hidden;
+    }
+
+    .randevu-form-wrap.appt-drawer--open {
+        transform: translateY(0);
+        visibility: visible;
+    }
+
+    /* ── Panel header — sabit üst bar ──────────────────── */
+    .appt-drawer__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--space-4) var(--space-5);
+        padding-top: calc(env(safe-area-inset-top, 0px) + var(--space-4));
+        border-bottom: 1px solid var(--color-border);
+        background: var(--color-bg);
+        flex-shrink: 0;
+        z-index: 2;
+    }
+
+    .appt-drawer__title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    /* ── Close button — büyük, belirgin, premium ──────── */
+    .appt-drawer__close {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        border: 1.5px solid var(--color-border);
+        background: var(--color-bg-2);
+        border-radius: var(--radius-full);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        color: var(--color-text-muted);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+        flex-shrink: 0;
+    }
+
+    .appt-drawer__close:hover,
+    .appt-drawer__close:focus-visible {
+        background: var(--color-danger);
+        border-color: var(--color-danger);
+        color: #fff;
+    }
+
+    .appt-drawer__close:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+    }
+
+    /* ── Scrollable form body ──────────────────────────── */
+    .randevu-form {
+        /* flex: 1 ile kalan alanı doldur */
+        flex: 1 1 auto;
+        min-height: 0;  /* flexbox scroll fix */
+
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-y: contain;
+
+        border: none;
+        border-radius: 0;
+        background: transparent;
+        padding: var(--space-5);
+
+        /* Safe area + extra bottom padding for submit visibility */
+        padding-bottom: calc(env(safe-area-inset-bottom, 16px) + 40px);
+    }
+
+    /* ── Backdrop ──────────────────────────────────────── */
+    .appt-drawer__backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 999;
+        background: rgba(0,0,0,0.5);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        -webkit-backdrop-filter: blur(2px);
+        backdrop-filter: blur(2px);
+    }
+
+    .appt-drawer__backdrop--visible {
+        display: block;
+        opacity: 1;
+    }
+}

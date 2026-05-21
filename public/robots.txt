@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Admin ve sistem sayfaları
+Disallow: /admin/
+Disallow: /admin/giris
+Disallow: /config/
+Disallow: /app/
+Disallow: /templates/
+Disallow: /routes/
+Disallow: /storage/
+
+# Arama sayfası — duplicate content riski
+Disallow: /arama
+
+# Teşekkür sayfası — conversion tracking, noindex
+Disallow: /randevu/tesekkur
+
+# Sayfalama — crawl bant genişliği koruması (noindex ile de korunuyor)
+Disallow: /*?sayfa=
+
+# Sitemap — deploy sırasında APP_URL'nizi girin
+# Örnek: Sitemap: https://www.siteniz.com/sitemap.xml
+Sitemap: https://www.dogukankopuk.com/sitemap.xml

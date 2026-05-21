@@ -1,0 +1,37 @@
+/* Tablet: max 1024px */
+
+@media (max-width: 1024px) {
+  .posts__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard__panels {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+
+  .featured__container {
+    grid-template-columns: 1fr;
+  }
+
+  .featured__container .post__thumbnail {
+    min-height: 260px;
+  }
+
+  .contact__hero-container {
+    grid-template-columns: 1fr;
+  }
+
+  .service__card {
+    grid-template-columns: 60px 1fr;
+    gap: var(--space-5);
+  }
+}

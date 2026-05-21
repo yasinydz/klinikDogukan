@@ -1,0 +1,52 @@
+/* Genel Form Sayfası */
+
+.form__section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-9) 0;
+}
+
+.form__section-container {
+  width: 100%;
+  max-width: 540px;
+  background: var(--color-bg-2);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8) var(--space-7);
+  box-shadow: var(--shadow-lg);
+}
+
+.form__section-container h2 {
+  margin-bottom: var(--space-6);
+  text-align: center;
+}
+
+.form__section-container form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.form__section-container input,
+.form__section-container textarea,
+.form__section-container select {
+  margin-bottom: 0;
+}
+
+.form__section-container .btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: var(--space-2);
+  padding: 0.8rem;
+}
+
+/* Geniş form container — TinyMCE içeren sayfalar için */
+.form__section-container--wide {
+  max-width: 820px;
+}
+
+.form__section-container--wide h2 {
+  text-align: left;
+}

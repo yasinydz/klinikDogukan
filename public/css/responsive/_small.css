@@ -1,0 +1,63 @@
+/* Küçük Mobil: max 480px */
+
+@media (max-width: 480px) {
+  :root {
+    --container-pad: 1rem;
+  }
+
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.35rem; }
+
+  .form__section-container {
+    padding: var(--space-6) var(--space-5);
+    border-radius: var(--radius-lg);
+  }
+
+  .singlepost__container {
+    padding: 0 var(--container-pad);
+  }
+
+  .contact__form .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .featured__container .post__info {
+    padding: var(--space-5);
+  }
+
+  table {
+    font-size: 0.8rem;
+  }
+
+  tbody td,
+  thead th {
+    padding: var(--space-3);
+  }
+
+  /* ── Admin stat kartları — tek sütun çok küçük ekranlarda ── */
+  .dashboard__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard__stat-card .stat-value {
+    font-size: 1.3rem;
+  }
+
+  /* ── Quick actions wrap ─────────────────────────────────── */
+  .dashboard__quick-actions .btn {
+    flex: 1 1 auto;
+    min-width: 0;
+    justify-content: center;
+  }
+
+  /* ── Hizmet kartı compact ───────────────────────────────── */
+  .hizmet-karti {
+    padding: var(--space-4);
+  }
+
+  /* ── Blog card compact ──────────────────────────────────── */
+  .post__info {
+    padding: var(--space-4);
+  }
+}

@@ -1,0 +1,89 @@
+/* Uyarı Mesajları */
+
+.alert__message {
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-md);
+  border-left: 4px solid;
+  margin-bottom: var(--space-5);
+}
+
+.alert__message p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.alert__message.success {
+  background: var(--color-success-bg);
+  border-color: var(--color-success);
+  color: var(--color-success);
+}
+
+.alert__message.success p {
+  color: var(--color-success);
+}
+
+.alert__message.error {
+  background: var(--color-danger-bg);
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+.alert__message.error p {
+  color: var(--color-danger);
+}
+
+.alert__message.warning {
+  background: var(--color-warning-soft, rgba(245,158,11,0.08));
+  border-color: var(--color-warning, #F59E0B);
+  color: var(--color-warning, #F59E0B);
+}
+
+.alert__message.warning p {
+  color: var(--color-warning, #F59E0B);
+}
+
+.alert__message.info {
+  background: var(--color-accent-soft, rgba(34,211,167,0.08));
+  border-color: var(--color-accent, #22D3A7);
+  color: var(--color-text);
+}
+
+.alert__message.info p {
+  color: var(--color-text);
+}
+
+.alert__message.lg {
+  padding: var(--space-6);
+  text-align: center;
+  border-left: none;
+  border: 1.5px solid var(--color-danger);
+  border-radius: var(--radius-lg);
+}
+
+/* ── Empty State — tutarlı boş durum gösterimi ──────────── */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-8) var(--space-5);
+  text-align: center;
+  color: var(--color-text-faint);
+}
+
+.empty-state i {
+  font-size: 2.5rem;
+  opacity: 0.4;
+}
+
+.empty-state p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-width: 360px;
+}
+
+.empty-state a {
+  color: var(--color-primary);
+  font-weight: 600;
+}

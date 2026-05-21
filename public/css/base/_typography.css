@@ -1,0 +1,81 @@
+/* =============================================================
+   _typography.css
+   Kaynak: psikologtype (type1)
+   Cormorant Garamond başlıklar + DM Sans gövde
+   ============================================================= */
+
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--color-text);
+  text-wrap: balance;
+}
+h4, h5, h6 {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  color: var(--color-text);
+  line-height: 1.35;
+}
+h1 {
+  font-size: clamp(2.35rem, 5vw, 3.4rem);
+  letter-spacing: -0.018em;
+  line-height: 1.08;
+}
+h2 {
+  font-size: clamp(1.9rem, 3.5vw, 2.65rem);
+  line-height: 1.12;
+}
+h3 {
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  line-height: 1.2;
+}
+h4 { font-size: 1rem; font-weight: 500; }
+h5 {
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+body, p, a, button, input, select, textarea, label, li, td, th {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 400;
+}
+button, nav a, .btn, label, .tag {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+p {
+  color: var(--color-text);
+  line-height: 1.75;
+  max-width: 68ch;
+}
+small { font-size: 0.8rem; color: var(--color-text-muted); }
+strong, b { font-weight: 500; color: var(--color-text); }
+
+/* Okuma genişliği istisnalar */
+.container p, .post__content p, td p, th p, label p { max-width: none; }
+
+p + p { margin-top: 0.75em; }
+
+.singlepost__body a, .service-detail__body a {
+  color: var(--color-primary);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color var(--transition-fast);
+}
+.singlepost__body a:hover, .service-detail__body a:hover {
+  color: var(--color-accent);
+}
+
+.stat-value, .dashboard__stat-card .stat-value {
+  font-feature-settings: "tnum";
+}
+
+/* Eyebrow / badge metinleri sans kalır */
+.category__button, .section__header h5, .badge {
+  font-family: 'DM Sans', sans-serif;
+}

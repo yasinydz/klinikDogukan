@@ -1,0 +1,114 @@
+/* =============================================================
+   themes.css — Birleşik Proje Renk Sistemi
+   Kaynak: psikologtype (type1)
+   Sıcak krem zemin + adaçayı yeşili marka rengi
+   ============================================================= */
+
+/* ── DARK MODE (varsayılan) ─────────────────────────────────── */
+:root {
+  --color-bg:            #1A1F1E;
+  --color-bg-2:          #222927;
+  --color-bg-3:          #2A3330;
+  --color-bg-4:          #313C38;
+
+  --color-border:        #2E3835;
+  --color-border-light:  #3A4542;
+
+  --color-text:          #EAE6E1;
+  --color-text-muted:    #9DA8A3;
+  --color-text-faint:    #6B7875;
+  --color-text-secondary: #9DA8A3;
+
+  --color-primary:       #6F8F86;
+  --color-primary-hover: #5A7A72;
+  --color-primary-glow:  rgba(111, 143, 134, 0.16);
+  --color-primary-soft:  rgba(111, 143, 134, 0.11);
+  --color-primary-border: rgba(111, 143, 134, 0.24);
+
+  --color-accent:        #B9A79A;
+  --color-accent-hover:  #A79588;
+  --color-accent-soft:   rgba(185, 167, 154, 0.12);
+
+  --color-success:       #8DA694;
+  --color-success-bg:    rgba(141, 166, 148, 0.12);
+  --color-danger:        #B88489;
+  --color-danger-bg:     rgba(184, 132, 137, 0.12);
+  --color-warning:       #C2A57C;
+  --color-warning-bg:    rgba(194, 165, 124, 0.12);
+  --color-warning-soft:  rgba(194, 165, 124, 0.10);
+
+  --shadow-sm:   0 1px 3px rgba(0,0,0,0.20), 0 1px 2px rgba(0,0,0,0.15);
+  --shadow-md:   0 6px 18px rgba(0,0,0,0.26), 0 2px 8px rgba(0,0,0,0.12);
+  --shadow-lg:   0 12px 36px rgba(0,0,0,0.32), 0 4px 14px rgba(0,0,0,0.16);
+  --shadow-glow: 0 8px 24px var(--color-primary-glow);
+
+  --nav-bg:              rgba(26, 31, 30, 0.86);
+  --nav-border:          rgba(58, 69, 66, 0.70);
+  --color-overlay:       rgba(15, 18, 17, 0.72);
+
+  --transition-fast:  0.15s ease;
+  --transition-base:  0.25s ease;
+  --transition-slow:  0.4s ease;
+}
+
+/* ── LIGHT MODE ─────────────────────────────────────────────── */
+body.light-mode {
+  --color-bg:            #F8F4EF;
+  --color-bg-2:          #FFFCF8;
+  --color-bg-3:          #F0E9E2;
+  --color-bg-4:          #E7DED6;
+
+  --color-border:        #DED6CE;
+  --color-border-light:  #E9E1D9;
+
+  --color-text:          #24313A;
+  --color-text-muted:    #5E6A73;
+  --color-text-faint:    #7B8786;
+  --color-text-secondary: #5E6A73;
+
+  --color-primary:       #6F8F86;
+  --color-primary-hover: #5A7A72;
+  --color-primary-glow:  rgba(111, 143, 134, 0.12);
+  --color-primary-soft:  rgba(111, 143, 134, 0.08);
+  --color-primary-border: rgba(111, 143, 134, 0.18);
+
+  --color-accent:        #B19D91;
+  --color-accent-hover:  #9D8A7F;
+  --color-accent-soft:   rgba(177, 157, 145, 0.10);
+
+  --color-success:       #6D8F79;
+  --color-success-bg:    rgba(109, 143, 121, 0.08);
+  --color-danger:        #B36C74;
+  --color-danger-bg:     rgba(179, 108, 116, 0.08);
+  --color-warning:       #AD8C5B;
+  --color-warning-bg:    rgba(173, 140, 91, 0.08);
+  --color-warning-soft:  rgba(173, 140, 91, 0.08);
+
+  --shadow-sm:   0 1px 3px rgba(36,49,58,0.06), 0 1px 2px rgba(36,49,58,0.04);
+  --shadow-md:   0 6px 18px rgba(36,49,58,0.10), 0 2px 8px rgba(36,49,58,0.05);
+  --shadow-lg:   0 12px 36px rgba(36,49,58,0.12), 0 4px 14px rgba(36,49,58,0.06);
+  --shadow-glow: 0 8px 24px var(--color-primary-glow);
+
+  --nav-bg:              rgba(248, 244, 239, 0.90);
+  --nav-border:          rgba(222, 214, 206, 0.76);
+  --color-overlay:       rgba(36, 49, 58, 0.42);
+}
+
+/* ── Genel UI ────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+button:focus-visible, a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+html { scroll-behavior: smooth; }
+.service__card, .post, .dashboard__stat-card { will-change: transform; }
+::selection { background: var(--color-primary-glow); color: var(--color-text); }
+img { image-rendering: -webkit-optimize-contrast; }
+input:focus, textarea:focus, select:focus {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px var(--color-primary-glow);
+}

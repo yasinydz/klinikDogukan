@@ -1,0 +1,38 @@
+/* Kategori Butonları */
+
+.category__button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.85rem;
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  border: 1px solid rgba(155, 142, 196, 0.2);
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.category__button:hover {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+}
+
+.category__buttons {
+  padding: var(--space-7) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.category__buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}

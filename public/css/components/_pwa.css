@@ -1,0 +1,224 @@
+/* =============================================================
+   _pwa.css — PWA Bannerları + Cookie Bar
+   ============================================================= */
+
+/* ── PWA BANNERLAR ─────────────────────────────────────────── */
+#pwa-install-banner,
+#pwa-update-banner,
+#pwa-ios-hint {
+    position: fixed;
+    bottom: calc(90px + 0.75rem);
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 2rem);
+    max-width: 480px;
+    background: var(--color-bg-2);
+    border: 1.5px solid var(--color-border);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    z-index: 9100;
+    animation: pwaSlideUp 0.3s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+
+@media (min-width: 769px) {
+    #pwa-install-banner,
+    #pwa-update-banner,
+    #pwa-ios-hint {
+        bottom: 1.5rem;
+        max-width: 420px;
+    }
+}
+
+@keyframes pwaSlideUp {
+    from { opacity:0; transform:translateX(-50%) translateY(20px); }
+    to   { opacity:1; transform:translateX(-50%) translateY(0); }
+}
+
+.pwa-banner__content { display:flex; align-items:center; gap:.75rem; padding:.875rem 1rem; }
+.pwa-banner__text    { flex:1; display:flex; flex-direction:column; gap:2px; min-width:0; }
+.pwa-banner__text strong { font-size:.875rem; font-weight:700; color:var(--color-text); white-space:nowrap; }
+.pwa-banner__text span   { font-size:.78rem; color:var(--color-text-muted); line-height:1.4; }
+.pwa-banner__btn { border:none; border-radius:8px; font-family:inherit; font-weight:700; cursor:pointer; flex-shrink:0; transition:background .15s,transform .1s; }
+.pwa-banner__btn:active { transform:scale(.95); }
+.pwa-banner__btn--install { background:var(--color-primary); color:#fff; font-size:.8rem; padding:.45rem 1rem; }
+.pwa-banner__btn--install:hover { background:var(--color-primary-hover); }
+.pwa-banner__btn--close { background:transparent; color:var(--color-text-faint); font-size:.75rem; padding:.35rem .5rem; }
+.pwa-banner__btn--close:hover { color:var(--color-text); }
+
+body.light-mode #pwa-install-banner,
+body.light-mode #pwa-update-banner,
+body.light-mode #pwa-ios-hint {
+    background:#fff;
+    border-color:rgba(0,0,0,.08);
+    box-shadow:0 8px 32px rgba(0,0,0,.10);
+}
+
+/* =============================================================
+   COOKIE BAR
+   - Desktop + Mobil her ikisinde çalışır
+   - hidden attr ile başlar, JS kaldırır → RAF → visible class
+   - z-index: 9200 (her şeyin üstünde)
+   - Mobilde mob-nav (76px) üzerinde: bottom: 76px
+   - Desktop: bottom: 0 (ekranın alt kenarına yaslanır)
+   ============================================================= */
+.cookie-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9200;
+    /* Başlangıç: aşağıda gizli */
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.38s cubic-bezier(0.34, 1.05, 0.64, 1),
+                opacity 0.3s ease;
+    /* hidden attribute → display:none */
+}
+
+.cookie-bar[hidden] {
+    display: none !important;
+}
+
+.cookie-bar--visible {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+}
+
+.cookie-bar--hiding {
+    transform: translateY(100%) !important;
+    opacity: 0 !important;
+    transition: transform 0.3s ease, opacity 0.25s ease;
+}
+
+/* Mobilde mob-nav barının hemen üstünde */
+@media (max-width: 768px) {
+    .cookie-bar {
+        bottom: 76px;
+    }
+}
+
+/* ── İç panel ─────────────────────────────────────────────── */
+.cookie-bar__inner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--color-bg-2);
+    border: 1px solid var(--color-border);
+    border-bottom: none;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    padding: var(--space-4) var(--space-6);
+    box-shadow: 0 -6px 32px rgba(0,0,0,0.20);
+}
+
+body.light-mode .cookie-bar__inner {
+    background: rgba(255,255,255,0.98);
+    border-color: rgba(0,0,0,0.08);
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.09);
+}
+
+/* ── İkon ─────────────────────────────────────────────────── */
+.cookie-bar__icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-primary-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    font-size: 1.2rem;
+}
+
+/* ── Metin ────────────────────────────────────────────────── */
+.cookie-bar__text {
+    flex: 1;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    margin: 0;
+    min-width: 0;
+}
+
+.cookie-bar__text a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: 500;
+}
+.cookie-bar__text a:hover { color: var(--color-primary-hover); }
+
+/* ── Aksiyonlar ───────────────────────────────────────────── */
+.cookie-bar__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-shrink: 0;
+}
+
+/* ── Butonlar ─────────────────────────────────────────────── */
+.cookie-bar__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    line-height: 1;
+    transition: all 0.15s ease;
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+}
+
+/* "Anladım" — solid pill */
+.cookie-bar__btn--accept {
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 0.875rem;
+    padding: 0.65rem 1.5rem;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+    box-shadow: 0 2px 10px var(--color-primary-glow);
+}
+.cookie-bar__btn--accept:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px var(--color-primary-glow);
+}
+.cookie-bar__btn--accept:active { transform: translateY(0); }
+
+/* "×" kapat */
+.cookie-bar__btn--close {
+    background: transparent;
+    color: var(--color-text-faint);
+    font-size: 1.25rem;
+    padding: 0;
+    border-radius: var(--radius-sm);
+    width: 34px;
+    height: 34px;
+}
+.cookie-bar__btn--close:hover {
+    background: var(--color-bg-3);
+    color: var(--color-text-muted);
+}
+
+/* ── Küçük Mobil (≤560px) ─────────────────────────────────── */
+@media (max-width: 560px) {
+    .cookie-bar__inner {
+        flex-wrap: wrap;
+        gap: var(--space-3);
+        padding: var(--space-4) var(--space-4);
+    }
+    .cookie-bar__icon { display: none; }
+    .cookie-bar__actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    .cookie-bar__btn--accept {
+        flex: 1;
+        max-width: 180px;
+    }
+}

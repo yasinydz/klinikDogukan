@@ -1,0 +1,336 @@
+/* Tekil Yazı Sayfası */
+
+.singlepost {
+  padding: var(--space-8) 0;
+  margin-top: var(--nav-height);
+}
+
+.singlepost__container {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+.singlepost__category {
+  margin-bottom: var(--space-4);
+}
+
+.singlepost__container > h2 {
+  font-size: clamp(1.75rem, 4vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: var(--space-5);
+}
+
+.singlepost__thumbnail {
+  margin: var(--space-6) 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1.5px solid var(--color-border);
+}
+
+.singlepost__thumbnail img {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+}
+
+.singlepost__body {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--color-text);
+  max-width: 72ch;
+}
+
+.singlepost__body p {
+  margin-bottom: var(--space-5);
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+.singlepost__body h2,
+.singlepost__body h3,
+.singlepost__body h4 {
+  margin-top: var(--space-7);
+  margin-bottom: var(--space-4);
+}
+
+.singlepost__body ul,
+.singlepost__body ol {
+  padding-left: var(--space-6);
+  margin-bottom: var(--space-5);
+  list-style: disc;
+}
+
+.singlepost__body li {
+  margin-bottom: var(--space-2);
+  line-height: 1.75;
+}
+
+.singlepost__body a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.singlepost__body blockquote {
+  border-left: 4px solid var(--color-accent);
+  padding: var(--space-4) var(--space-5);
+  margin: var(--space-6) 0;
+  background: var(--color-accent-soft);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+/* TinyMCE HTML içerik desteği */
+.singlepost__body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  margin: var(--space-4) 0;
+}
+
+.singlepost__body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-5) 0;
+}
+
+.singlepost__body table td,
+.singlepost__body table th {
+  border: 1px solid var(--color-border);
+  padding: var(--space-3) var(--space-4);
+}
+/* ═══════════════════════════════════════════════════════════
+   Share Bar — Blog paylaşım butonları
+   ════════════════════════════════════════════════════════ */
+
+.share-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.share-bar--top {
+  margin: var(--space-4) 0 var(--space-5);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-bg-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.share-bar--bottom {
+  margin: var(--space-8) 0 var(--space-6);
+  padding: var(--space-5);
+  background: var(--color-bg-2);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  border-left: 3px solid var(--color-primary);
+}
+
+.share-bar__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.share-bar__label i {
+  font-size: 1rem;
+  color: var(--color-primary);
+}
+
+.share-bar__buttons {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+/* ── Paylaş Buton ─────────────────────────────────────────── */
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.share-btn:hover {
+  transform: translateY(-2px);
+}
+
+.share-btn i,
+.share-btn__icon-svg {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* WhatsApp */
+.share-btn--whatsapp {
+  background: rgba(37,211,102,0.1);
+  color: #25D366;
+  border-color: rgba(37,211,102,0.25);
+}
+.share-btn--whatsapp:hover {
+  background: #25D366;
+  color: #fff;
+  border-color: #25D366;
+}
+
+/* Twitter / X */
+.share-btn--twitter {
+  background: var(--color-bg-3);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+.share-btn--twitter:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+  border-color: var(--color-text);
+}
+
+/* LinkedIn */
+.share-btn--linkedin {
+  background: rgba(0,119,181,0.1);
+  color: #0077B5;
+  border-color: rgba(0,119,181,0.25);
+}
+.share-btn--linkedin:hover {
+  background: #0077B5;
+  color: #fff;
+  border-color: #0077B5;
+}
+
+/* Telegram */
+.share-btn--telegram {
+  background: rgba(0,136,204,0.1);
+  color: #0088CC;
+  border-color: rgba(0,136,204,0.2);
+}
+.share-btn--telegram:hover {
+  background: #0088CC;
+  color: #fff;
+  border-color: #0088CC;
+}
+
+/* Copy Link */
+.share-btn--copy {
+  background: var(--color-bg-3);
+  color: var(--color-text-muted);
+  border-color: var(--color-border);
+}
+.share-btn--copy:hover,
+.share-btn--copy.copied {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border-color: var(--color-accent);
+}
+.share-btn--copy.copied .share-btn__label::before {
+  content: 'Kopyalandı!';
+}
+.share-btn--copy.copied .share-btn__original { display: none; }
+
+/* Mobilde label gizle, sadece ikon kalsın */
+@media (max-width: 480px) {
+  .share-bar--top .share-btn__label { display: none; }
+  .share-btn { padding: 8px 10px; }
+}
+
+@media (max-width: 380px) {
+  .share-btn__label { display: none; }
+}
+
+/* ── Post Author Bio — premium görünüm ──────────────────── */
+.post-author-bio {
+  display: flex;
+  gap: var(--space-5);
+  align-items: flex-start;
+  margin-top: var(--space-8);
+  padding: var(--space-6);
+  background: var(--color-bg-2);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  border-left: 3px solid var(--color-accent);
+}
+
+.post-author-bio__avatar img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-primary);
+  flex-shrink: 0;
+}
+
+.post-author-bio__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-faint);
+  margin-bottom: 3px;
+}
+
+.post-author-bio__info h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+  color: var(--color-text);
+}
+
+.post-author-bio__title {
+  font-size: 0.82rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.post-author-bio__desc {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  margin-bottom: var(--space-3);
+}
+
+.post-author-bio__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: gap var(--transition-fast);
+}
+.post-author-bio__link:hover { gap: var(--space-2); }
+
+@media (max-width: 500px) {
+  .post-author-bio {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+}

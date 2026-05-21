@@ -1,0 +1,150 @@
+/* _mobile.css — Küçük Tablet / Büyük Mobil: max 768px */
+
+@media (max-width: 768px) {
+
+  /* ── Grid Düzenlemeleri ─────────────────────────────────── */
+  .posts__container {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard__container {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── Sidebar Mobil ──────────────────────────────────────── */
+  aside {
+    position: fixed;
+    left: -100%;
+    top: var(--nav-height);
+    bottom: 0;
+    width: 260px;
+    z-index: 50;
+    transition: left var(--transition-base);
+    height: auto;
+    box-shadow: var(--shadow-lg);
+  }
+
+  aside.open {
+    left: 0;
+  }
+
+  .sidebar__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: var(--space-6);
+    right: var(--space-5);
+    width: 46px;
+    height: 46px;
+    background: var(--color-primary);
+    color: #fff;
+    border-radius: var(--radius-full);
+    font-size: 1.2rem;
+    box-shadow: var(--shadow-glow);
+    z-index: 60;
+    transition: transform var(--transition-fast);
+  }
+
+  .sidebar__toggle:hover {
+    transform: scale(1.1);
+  }
+
+  #hide__sidebar-btn {
+    display: none;
+  }
+
+  /* ── Dashboard Mobil ────────────────────────────────────── */
+  .dashboard__container main {
+    padding: var(--space-5) var(--container-pad);
+  }
+
+  .dashboard__panels {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard__page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  /* Stat kartları — 2 sütun mobil */
+  .dashboard__stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+
+  .dashboard__stat-card {
+    padding: var(--space-4);
+  }
+
+  .dashboard__stat-card .stat-value {
+    font-size: 1.5rem;
+  }
+
+  /* Quick actions — wrap ve compact */
+  .dashboard__quick-actions {
+    gap: var(--space-2);
+  }
+
+  .dashboard__quick-actions .btn {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.78rem;
+  }
+
+  /* Table actions — compact buttons mobilde */
+  .table__actions {
+    gap: var(--space-1);
+  }
+
+  .table__actions .btn.sm,
+  .table__actions button.btn.sm {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.72rem;
+  }
+
+  /* Dashboard list — daha sıkı */
+  .dashboard__list-item {
+    padding: var(--space-3) var(--space-4);
+    gap: var(--space-3);
+  }
+
+  .dashboard__list-title {
+    font-size: 0.82rem;
+  }
+
+  /* ── Mesaj detay ────────────────────────────────────────── */
+  .message__detail-row {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .message__detail-label {
+    min-width: auto;
+  }
+
+  /* ── İletişim formu ─────────────────────────────────────── */
+  .contact__form-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── Footer ─────────────────────────────────────────────── */
+  .footer__container {
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+  }
+
+  /* ── Form Section (Login vb.) ───────────────────────────── */
+  .form__section-container {
+    padding: var(--space-6) var(--space-5);
+    border-radius: var(--radius-lg);
+    margin: 0 var(--space-3);
+  }
+
+  /* ── Admin nav actions — compact ────────────────────────── */
+  .nav__actions .btn.sm {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.72rem;
+  }
+}
